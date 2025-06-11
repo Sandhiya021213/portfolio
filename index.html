@@ -6,85 +6,117 @@
   <title>Sandhiya | Portfolio</title>
   <style>
     :root {
-      --primary-color: #0066cc;
-      --secondary-color: #f4f4f4;
-      --dark-color: #333;
-      --light-color: #fff;
-      --accent-color: #e0f0ff;
+      --primary-color: #0f2027;
+      --secondary-color: #2c5364;
+      --accent-color: #00c6ff;
+      --bg-gradient: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--secondary-color);
-      color: var(--dark-color);
+      color: white;
+      background: var(--bg-gradient);
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(to right, #004080, #0066cc);
-      color: var(--light-color);
-      padding: 3rem 1rem;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
     }
 
     .hero h1 {
-      font-size: 3rem;
-      margin: 0;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out;
     }
 
     .hero p {
       font-size: 1.3rem;
-      margin-top: 0.5rem;
+      animation: fadeInUp 1.2s ease-out;
     }
 
     section {
-      padding: 3rem 1.5rem;
-      max-width: 900px;
-      margin: auto;
-      background-color: var(--light-color);
-      margin-top: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--glass-bg);
+      border-radius: 15px;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-in;
     }
 
     h2 {
-      font-size: 1.8rem;
-      color: var(--primary-color);
-      border-left: 5px solid var(--primary-color);
-      padding-left: 0.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid var(--accent-color);
+      display: inline-block;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 3px;
+      width: 100%;
+      background: var(--accent-color);
+      animation: underline 1.2s ease-out;
+    }
+
+    .project, ul, .contact-list {
+      margin-top: 1rem;
+    }
+
+    .project {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .project h3 {
-      font-size: 1.4rem;
-      color: #004080;
+      color: #00c6ff;
       margin-bottom: 0.5rem;
     }
 
-    .project p {
-      line-height: 1.6;
-    }
-
     .project a {
+      color: #00c6ff;
+      text-decoration: none;
+      font-weight: bold;
       display: inline-block;
       margin-top: 0.5rem;
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 600;
-      border: 1px solid var(--primary-color);
-      padding: 0.4rem 0.8rem;
-      border-radius: 5px;
-      transition: background 0.3s, color 0.3s;
+      border: 1px solid #00c6ff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
     }
 
     .project a:hover {
-      background: var(--primary-color);
-      color: var(--light-color);
+      background-color: #00c6ff;
+      color: #002b40;
     }
 
     ul {
+      list-style: none;
       padding-left: 1rem;
     }
 
@@ -92,76 +124,94 @@
       margin-bottom: 0.5rem;
     }
 
-    ul.contact-list {
-      list-style: none;
+    .contact-list {
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 0;
-      margin-top: 1rem;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
 
     .contact-link {
       text-decoration: none;
-      font-weight: 600;
-      color: var(--primary-color);
-      border: 1px solid var(--primary-color);
-      padding: 0.4rem 0.8rem;
-      border-radius: 5px;
+      color: white;
+      border: 2px solid var(--accent-color);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
       transition: background 0.3s, color 0.3s;
     }
 
     .contact-link:hover {
-      background: var(--primary-color);
-      color: var(--light-color);
+      background: var(--accent-color);
+      color: var(--primary-color);
     }
 
     footer {
-      background-color: #222;
-      color: var(--light-color);
       text-align: center;
-      padding: 1.2rem;
-      margin-top: 3rem;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      background-color: #00000044;
     }
 
-    /* Responsive Design */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes underline {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       .hero p {
         font-size: 1rem;
       }
 
-      ul.contact-list {
+      section {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+
+      .contact-list {
         flex-direction: column;
-        gap: 0.75rem;
         align-items: center;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
     <div class="hero">
       <h1>Hi, I'm Sandhiya</h1>
-      <p>A software developer passionate about coding and problem-solving.</p>
+      <p>Software Developer | Problem Solver | Tech Enthusiast</p>
     </div>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>Hello! I'm Sandhiya, a recent graduate with a passion for software development. I am constantly learning new technologies and improving my skills. My goal is to contribute to innovative projects and grow as a developer.</p>
+    <p>Hello! I'm Sandhiya, a recent graduate passionate about software development. I love building things that solve real-world problems. I enjoy learning new technologies and continuously strive to grow as a developer.</p>
   </section>
 
   <section id="projects">
     <h2>Project</h2>
     <div class="project">
       <h3>Leave Management System</h3>
-      <p>The Leave Management System is an application designed to streamline the process of requesting and managing leave requests within an organization. The system allows employees to submit leave requests to the Managers, and HR personnel can review, approve, or reject requests and generate reports on leave statistics.</p>
-      <p>This project uses MySQL as the database, along with HTML, CSS, JavaScript, and Python Flask to provide full CRUD functionality.</p>
+      <p>This app helps manage leave requests within organizations. Employees can apply, and managers or HR can approve, reject, or view statistics. It uses MySQL for the database and HTML, CSS, JavaScript, and Flask for frontend/backend. CRUD functionality is fully implemented.</p>
       <a href="https://github.com/Sandhiya021213/ciglobal" target="_blank">View on GitHub</a>
     </div>
   </section>
@@ -169,7 +219,8 @@
   <section id="skills">
     <h2>Skills</h2>
     <ul>
-      <li>HTML, CSS, and JavaScript</li>
+      <li>HTML, CSS, JavaScript</li>
+      <li>Angular</li> 
       <li>Java</li>
       <li>Python</li>
       <li>MySQL</li>
@@ -179,15 +230,16 @@
 
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>You can reach me via email or connect with me on LinkedIn:</p>
+    <p>Let’s connect! Reach out via email or LinkedIn:</p>
     <ul class="contact-list">
       <li><a href="mailto:jrsandhiya13@gmail.com" class="contact-link">Email Me</a></li>
-      <li><a href="https://www.linkedin.com/in/sandhiya-j" target="_blank" class="contact-link">Connect on LinkedIn</a></li>
+      <li><a href="https://www.linkedin.com/in/sandhiya-j" target="_blank" class="contact-link">LinkedIn</a></li>
     </ul>
   </section>
 
   <footer>
     <p>&copy; 2024 Sandhiya. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
