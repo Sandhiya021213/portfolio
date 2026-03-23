@@ -13,109 +13,55 @@
       --text: #ccd6f6;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--primary);
-      color: var(--text);
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--primary); color: var(--text); }
 
-    /* NAVBAR */
     nav {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 3rem;
-      background: var(--secondary);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 3rem; background: var(--secondary);
+      position: sticky; top: 0; z-index: 100;
     }
 
-    nav h2 {
-      color: var(--accent);
-    }
+    nav h2 { color: var(--accent); }
+    nav ul { display: flex; gap: 25px; list-style: none; }
 
-    nav ul {
-      display: flex;
-      gap: 20px;
-      list-style: none;
+    nav a { text-decoration: none; color: var(--text); position: relative; }
+    nav a::after {
+      content: ''; position: absolute; width: 0; height: 2px;
+      left: 0; bottom: -5px; background: var(--accent); transition: 0.3s;
     }
+    nav a:hover::after { width: 100%; }
+    nav a:hover { color: var(--accent); }
 
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    /* HERO */
     .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4rem 10%;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 5rem 10%; flex-wrap: wrap;
     }
 
-    .hero-text {
-      max-width: 500px;
-    }
+    .hero-text { max-width: 500px; }
 
-    .hero h1 {
-      font-size: 3rem;
-      color: white;
-    }
-
-    .hero p {
-      margin: 1rem 0;
-      color: #8892b0;
-    }
+    .hero h1 { font-size: 3rem; color: white; }
+    .hero p { margin: 1rem 0; color: #8892b0; }
 
     .hero img {
-      width: 250px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
+      width: 220px; border-radius: 50%; border: 3px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
     .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-      border-radius: 5px;
-      transition: 0.3s;
+      display: inline-block; padding: 10px 20px;
+      border: 1px solid var(--accent); color: var(--accent);
+      text-decoration: none; border-radius: 6px;
+      transition: 0.3s; margin-top: 10px;
     }
 
-    .btn:hover {
-      background: var(--accent);
-      color: black;
-    }
+    .btn:hover { background: var(--accent); color: black; transform: scale(1.05); }
 
-    section {
-      padding: 4rem 10%;
-    }
+    section { padding: 4rem 10%; }
 
-    h2 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
+    h2 { color: var(--accent); margin-bottom: 1rem; }
 
-    /* ABOUT */
-    .about {
-      max-width: 700px;
-    }
-
-    /* PROJECTS */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -127,73 +73,43 @@
       border-radius: 10px;
       overflow: hidden;
       transition: 0.3s;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-    }
+    .card:hover { transform: translateY(-10px); }
 
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
 
-    .card-content {
-      padding: 1rem;
-    }
+    .card-content { padding: 1rem; }
 
-    .card h3 {
-      color: white;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      color: #8892b0;
-    }
-
-    /* SKILLS */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
 
     .skill {
       background: var(--secondary);
       padding: 8px 15px;
       border-radius: 20px;
       border: 1px solid var(--accent);
+      transition: 0.3s;
     }
 
-    /* CONTACT */
-    .contact a {
-      margin-right: 15px;
-    }
+    .skill:hover { background: var(--accent); color: black; }
+
+    .contact { display: flex; gap: 15px; flex-wrap: wrap; }
 
     footer {
-      text-align: center;
-      padding: 1rem;
+      text-align: center; padding: 1rem;
       background: var(--secondary);
-      margin-top: 2rem;
     }
 
-    @media(max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero img {
-        margin-top: 20px;
-      }
+    @media(max-width:768px){
+      .hero{ flex-direction: column; text-align: center; }
+      .hero img{ margin-top:20px; }
     }
   </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <h2>Sandhiya</h2>
   <ul>
@@ -204,68 +120,66 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <h1>Hi, I'm Sandhiya 👋</h1>
+    <h1>Hi, I'm Sandhiya</h1>
     <p>Software Developer passionate about building real-world applications and solving problems.</p>
     <a href="#contact" class="btn">Contact Me</a>
   </div>
-
-  <!-- Replace with your image -->
-  <img src="https://via.placeholder.com/250" alt="Profile Image">
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
-  <p class="about">
-    I'm a passionate software developer with experience in Angular, Python, and MySQL. 
-    I enjoy building scalable applications and continuously learning new technologies 
-    to improve my development skills.
+  <p>
+    I am a dedicated Software Developer with experience in developing scalable and user-friendly applications. I am passionate about solving real-world problems and continuously enhancing my technical knowledge.
   </p>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
-
   <div class="projects">
 
     <div class="card">
-      <img src="https://via.placeholder.com/400x200" alt="Project Image">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
       <div class="card-content">
         <h3>Leave Management System</h3>
         <p>Web application to manage employee leave requests with full CRUD operations.</p>
-        <a href="https://github.com/Sandhiya021213/ciglobal" class="btn" target="_blank">View Project</a>
+        <a href="https://github.com/Sandhiya021213/ciglobal" class="btn" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c">
+      <div class="card-content">
+        <h3>Portfolio Website</h3>
+        <p>Personal portfolio to showcase projects, skills, and experience.</p>
+        <a href="#" class="btn">Live Demo</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
   <div class="skills-list">
     <span class="skill">JavaScript</span>
     <span class="skill">Angular</span>
-    <span class="skill">Python(Flask)</span>
+    <span class="skill">Python</span>
     <span class="skill">Java</span>
     <span class="skill">MySQL</span>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact">
     <a href="mailto:jrsandhiya13@gmail.com" class="btn">Email</a>
-    <a href="https://www.linkedin.com/in/sandhiya-j" target="_blank" class="btn">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/sandhiya-j" class="btn" target="_blank">LinkedIn</a>
+    <a href="https://github.com" class="btn" target="_blank">GitHub</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2026 Sandhiya | All Rights Reserved</p>
 </footer>
